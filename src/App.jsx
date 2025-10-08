@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 
 const menuItems = [
@@ -302,6 +301,7 @@ function App() {
     [activeItem.metrics.likes, activeItem.metrics.saves, activeItem.metrics.views],
   )
 
+function App() {
   return (
     <div className={`app-shell${isMobileMenuOpen ? ' app-shell--drawer-open' : ''}`} style={{ '--accent-color': activeItem.accent }}>
       <aside className="sidebar">
@@ -326,6 +326,21 @@ function App() {
           </p>
           <button type="button">Uploader une vidéo</button>
         </div>
+        <nav aria-label="Navigation principale" className="sidebar__menu">
+          <ul>
+            {menuItems.map((item) => (
+              <li key={item.label}>
+                <button
+                  type="button"
+                  className={`sidebar__menu-item${item.isActive ? ' is-active' : ''}`}
+                >
+                  <img src={item.icon} alt="" aria-hidden="true" />
+                  <span>{item.label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </aside>
 
       <main className="feed">
