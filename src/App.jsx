@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 
 const menuItems = [
@@ -301,7 +302,6 @@ function App() {
     [activeItem.metrics.likes, activeItem.metrics.saves, activeItem.metrics.views],
   )
 
-function App() {
   return (
     <div className={`app-shell${isMobileMenuOpen ? ' app-shell--drawer-open' : ''}`} style={{ '--accent-color': activeItem.accent }}>
       <aside className="sidebar">
